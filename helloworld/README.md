@@ -9,7 +9,7 @@ The instructions I am about to give you work for my chip and operating system. I
 To compile the assembly code into machine code, I typed the following commands, from within the helloworld folder.
 
     % as -o helloworld.o helloworld.s
-    % ld -o helloworld helloworld.o -lSystem -syslibroot $SYSLIBROOT -e _main
+    % ld -o helloworld helloworld.o -lSystem -syslibroot $SYSLIBROOT -e main
     % ./helloworld
     Hello world!
 
@@ -36,12 +36,12 @@ To compile the assembly code into machine code, I first defined the environment 
 Then I typed the following commands in the helloworld directory.
 
     % as -o helloworld.o helloworld.s
-    % ld -o helloworld helloworld.o -lSystem -syslibroot $SYSLIBROOT -e _main
+    % ld -o helloworld helloworld.o -lSystem -syslibroot $SYSLIBROOT -e main
     % ./helloworld
     Hello world!
 
 The -lSystem and -syslibroot options specify the path in which to find the System library. We need to include the System library when we link the helloworld.o object file.
 
-The -e option specifies the entry point, which corresponds to the address referenced by _main.
+The -e option specifies the entry point, which corresponds to the address referenced by main.
 
 The -o option specifies the output file.
