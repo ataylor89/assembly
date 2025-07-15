@@ -1,7 +1,7 @@
-.global main
+.global _main
 .p2align 2
 
-main:
+_main:
     mov X0, #1
     adr X1, str
     mov X2, len
