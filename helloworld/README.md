@@ -45,3 +45,17 @@ The -lSystem and -syslibroot options specify the path in which to find the Syste
 The -e option specifies the entry point, which corresponds to the memory address symbolized by the main label.
 
 The -o option specifies the name of the output file.
+
+## Some vocabulary
+
+Before we explain the assembly code, it helps to learn some vocabulary.
+
+Word | Definition
+---- | ----------
+Directive | An instruction for the assembler (e.g. .global, .balign, .text, .data)
+Symbol | A variable that has a value
+Label | A symbol that stores a memory address (e.g. main is a label and it correponds to a memory address)
+mov | The move instruction. It moves a value into a register.
+adr | The address instruction. It moves an address into a register.
+svc | Supervised call (or syscall). A system call is an operating system procedure, like write or exit.
+
