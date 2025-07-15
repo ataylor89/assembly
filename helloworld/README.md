@@ -165,11 +165,11 @@ The first instruction is "mov X0, #1".
 
 Our program makes two system calls, write and exit.
 
-First it prepares the write system call, by storing the address of our string and the length of our string in registers X1 and X2. It also stores the system call number in register X0.
+First it prepares the write system call, by storing the address of our string and the length of our string in registers X1 and X2. It also stores the system call number in register X16.
 
 Then it makes the system call.
 
-Then it prepares the exit system call, by storing the exit status in register X0, and by storing the system call number in register X1.
+Then it prepares the exit system call, by storing the exit status in register X0, and by storing the system call number in register X16.
 
 Then it makes the system call.
 
