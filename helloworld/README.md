@@ -68,8 +68,7 @@ To explain the code, line by line, we'll just add a comment above each line of a
 Here is the code, reproduced, below:
 
     // The global directive makes a symbol globally visible,
-    // so that it can be referenced by other object files during linking.
-    // The main label defines the memory address that will be used as the entry point to our program.
+    // so that it can be referenced by other parts of the program.
     .global main
 
     // It's interesting... this directive appears to be unnecessary.
@@ -79,9 +78,7 @@ Here is the code, reproduced, below:
     // without the programmer having to do it manually.
     .balign 4
 
-    // The main label defines the start address of our program
-    // It is a symbol stored in the symbol table
-    // The symbol name is "main" and the symbol value is a memory address
+    // The main label stores the start address of our program
     main:
         
         // This instruction moves the value 1 into the 64-bit register X0
