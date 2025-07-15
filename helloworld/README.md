@@ -42,6 +42,6 @@ Then I typed the following commands in the helloworld directory.
 
 The -lSystem and -syslibroot options specify the path in which to find the System library. We need to include the System library when we link the helloworld.o object file.
 
-The -e option specifies the entry point, which corresponds to the address referenced by main.
+The -e option specifies the entry point, which corresponds to the memory address symbolized by the main label.
 
-The -o option specifies the output file.
+The -o option specifies the name of the output file.
