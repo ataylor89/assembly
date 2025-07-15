@@ -59,6 +59,7 @@ mov | The move instruction. It moves a value into a register.
 adr | The address instruction. It moves an address into a register.
 svc | Supervised call (or syscall). A system call is an operating system procedure, like write or exit.
 Symbol table | A table that stores information about symbols
+Register | A storage device within the CPU
 
 ## Explaining the code, line by line
 
