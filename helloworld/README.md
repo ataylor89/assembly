@@ -121,7 +121,9 @@ Here is the code, reproduced, below:
 
 We have finished commenting our code. I hope that makes the code clear.
 
-I have been writing assembly for a long time, so I am used to concepts like instructions, registers, and machine code. What we are really doing is feeding instructions into a processor (or a chip) and the processor executes these instructions. The processor is capable of moving numeric data (binary data) into a register, into memory, or into an IO device like a computer screen. IO is an acronym that means "input output".
+I have been writing assembly for a long time, so I am used to concepts like instructions, registers, and machine code. What we are really doing is feeding instructions into a processor (or a chip) and the processor executes these instructions. The processor is capable of moving numeric data (binary data) into a register, into memory, or into an IO device like a computer screen.
+
+IO is an acronym that means "input output".
 
 We can think of a computer as a chip (processor), a memory system (RAM), and a collection of IO devices. The chip (or processor) is capable of writing data to registers, memory, and IO devices.
 
