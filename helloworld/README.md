@@ -133,4 +133,6 @@ Assembly language allows us to interact with a processor at a very low level.
 
 We compile assembly language into an object file. Then we link the object file into an executable.
 
-The operating system loads an executable into memory, and passes its instructions to the processor.
+The operating system loads an executable into memory.
+
+Then, the operating system sets the CPU's instruction pointer to the entry point of the program.
