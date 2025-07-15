@@ -1,5 +1,5 @@
 .global main
-.p2align 2
+.balign 4
 
 main:
     mov X0, #1
