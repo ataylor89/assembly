@@ -54,7 +54,7 @@ Word | Definition
 ---- | ----------
 Directive | An instruction for the assembler (e.g. .global, .balign, .text, .data)
 Symbol | A variable that has a value
-Label | A symbol that stores a memory address (e.g. main is a label and it correponds to a memory address)
+Label | A symbol that stores a memory address (e.g. main is a label and it corresponds to a memory address)
 mov | The move instruction. It moves a value into a register.
 adr | The address instruction. It moves an address into a register.
 svc | Supervised call (or syscall). A system call is an operating system procedure, like write or exit.
