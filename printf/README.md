@@ -48,7 +48,7 @@ svc | Supervisor call (or syscall). A system call is an operating system procedu
 str | Store the value in a register onto the stack
 stp | Store the values in a pair of registers onto the stack
 ldp | Load two values from the stack into a pair of registers
-add | Add two values and store the result in a register (the operands can be registers or constants)
-sub | Subtract one value from another and store the result in a register (the operands can be registers or constants)
+add | Add two values and store the result in a register
+sub | Subtract one value from another and store the result in a register
 .ascii | A directive that defines an ASCII string
 .asciz | A directive that defines a null-terminated ASCII string
