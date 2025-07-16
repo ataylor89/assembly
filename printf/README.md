@@ -43,7 +43,7 @@ Register | A storage device within the CPU
 Kernel mode | A privileged mode in which the operating system runs
 User mode | An unprivileged mode in which a user program runs
 mov | The move instruction. It moves a value into a register.
-adr | The address instruction. It moves an address into a register.
+adr | Loads a PC-relative address into a register (the offset of the address relative to the program counter)
 svc | Supervisor call (or syscall). A system call is an operating system procedure, like write or exit.
 str | Store data from a register into memory
 ldr | Load data from memory into a register
