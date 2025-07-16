@@ -2,7 +2,7 @@
 .balign 4
 
 main:
-    stp X29, X30, [sp, -16]!
+    stp X29, X30, [sp, #-16]!
     sub sp, sp, #16
     mov X8, #2025
     str X8, [sp]
