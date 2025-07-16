@@ -45,9 +45,10 @@ User mode | An unprivileged mode in which a user program runs
 mov | The move instruction. It moves a value into a register.
 adr | The address instruction. It moves an address into a register.
 svc | Supervisor call (or syscall). A system call is an operating system procedure, like write or exit.
-str | Store the value in a register onto the stack
-stp | Store the values in a pair of registers onto the stack
-ldp | Load two values from the stack into a pair of registers
+str | Store data from a register into memory
+ldr | Load data from memory into a register
+stp | Store data from a pair of registers into memory
+ldp | Load data from memory into a pair of registers
 add | Add two values and store the result in a register
 sub | Subtract one value from another and store the result in a register
 .ascii | A directive that defines an ASCII string
