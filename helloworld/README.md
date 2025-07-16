@@ -57,7 +57,7 @@ Symbol | A variable that has a value
 Label | A symbol that stores a memory address (e.g. main is a label and it corresponds to a memory address)
 mov | The move instruction. It moves a value into a register.
 adr | The address instruction. It moves an address into a register.
-svc | Supervised call (or syscall). A system call is an operating system procedure, like write or exit.
+svc | Supervisor call (or syscall). A system call is an operating system procedure, like write or exit.
 Symbol table | A table that stores information about symbols
 Register | A storage device within the CPU
 Kernel mode | A privileged mode in which the operating system runs
