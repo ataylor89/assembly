@@ -60,54 +60,32 @@ My family taught me that in C we do memory management, and in assembly we do sta
 
 For a long time I asked, "Why do we need the stack? Why do we use the stack?"
 
-The answer is simple... the stack can be used to pass arguments to a function.
+I'll do my best to explain.
 
-It is also possible to use registers to pass arguments to a function, but if we were to rely on registers alone, and not use the stack, then our function (or library) would monopolize many registers.
+We use the stack to pass arguments to a function. We also use the stack to preserve register values.
 
-When we use the stack to pass arguments to a function, we have to manage the stack.
+When we call the function printf, in our example printf.s, first we save the values of registers X29 and X30 onto the stack, so that we can restore them later.
 
-In our example, printf.s, we store three values on the stack.
+Then we push the value 2025 onto the stack, because it is an argument to the printf function.
 
-We store the values in registers X29 and X30 on the stack.
+When we finally call printf with the command `bl _printf`, the registers X29 and X30 get modified.
 
-We also store the constant 2025 on the stack.
+The register X29 contains the frame pointer, and it gets modified to contain a new frame pointer.
 
-The printf function parses the format string, and sees that there is one integer argument. Then it pops the stack to retrieve the integer argument, 2025. Then it creates a new string according to the format that it's given.
+The register X30 contains the return address, and it gets modified to contain a new return address.
 
-It's important to know that, when we call a function like printf, the X29 and X30 registers get modified.
+After printf is finished, we restore the old values of X29 and X30 by loading them from the stack.
 
-The X29 register contains the frame pointer, and it gets modified to point to a new stack frame.
+This way we preserve the values of registers X29 and X30.
 
-The X30 register contains the return address, and it gets modified to point to a new return address.
+You might ask, "Why don't we just use registers to pass arguments to a function?"
 
-For example, when we call printf with the command `bl _printf`, the register X30 gets updated to point to the address immediately following `bl _printf`, and the register X29 gets updated to point to a new stack frame.
+We actually can... but it's impractical to use registers.
 
-We want to preserve the values of registers X29 and X30, since they get modified when we call printf.
+If we pass 50 arguments to printf, then it's hard to find enough registers to store these values.
 
-In order to preserve these values, we save them to the stack before calling printf.
+It's also the case that, if we use registers to pass arguments to a function, and solely rely on registers, then the functions we call would monopolize a certain set of registers. We want these registers to be available for use by the assembly programmer... we don't want them to be reserved for the functions that we call.
 
-After printf is finished, we restore the values of registers X29 and X30, by loading them from the stack.
+For these reasons, it is more practical to use the stack to pass arguments to a function.
 
-I'll try to explain this more concisely.
-
-Our program has a stack frame. It stores the frame pointer in X29 and the return address in X30.
-
-When we call printf, we store a new frame pointer in X29, and we store a new return address in X30.
-
-In order to preserve the old frame pointer and the old return address, we save them onto the stack before calling printf. After printf is done, we restore the values of X29 and X30 by loading them from the stack.
-
-I hope this explains why we store the values of X29 and X30 onto the stack, before calling printf. We need to preserve the values of X29 and X30 so we save them onto the stack, call printf, and then restore them from the stack.
-
-We save the constant 2025 onto the stack as well.
-
-The function printf pops the stack to get its integer argument, 2025.
-
-In essence, we use the stack to pass arguments to a function.
-
-We could also use registers to do this, but then the functions that we call would monopolize many registers, and make them unavailable for use.
-
-For this reason, it is more practical to use the stack to pass arguments to a function.
-
-I know that stack management is complicated. I have tried my best to explain it.
-
-If you ask me the question, "Why do we use the stack?" the short answer is that we use the stack to pass arguments to a function. The long answer is that we use the stack to pass arguments to a function, and we also use it to preserve register values, like the values of registers X29 and X30.
+We use the stack to pass arguments to a function. We also use the stack to preserve register values.
