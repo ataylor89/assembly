@@ -55,13 +55,13 @@ Word | Definition
 Directive | An instruction for the assembler (e.g. .global, .balign, .text, .data)
 Symbol | A variable that has a value
 Label | A symbol that stores a memory address (e.g. main is a label and it corresponds to a memory address)
-mov | The move instruction. It moves a value into a register.
-adr | The address instruction. It moves an address into a register.
-svc | Supervisor call (or syscall). A system call is an operating system procedure, like write or exit.
 Symbol table | A table that stores information about symbols
 Register | A storage device within the CPU
 Kernel mode | A privileged mode in which the operating system runs
 User mode | An unprivileged mode in which a user program runs
+mov | The move instruction. It moves a value into a register.
+adr | Loads a PC-relative address into a register (the offset of the address relative to the program counter)
+svc | Supervisor call (or syscall). A system call is an operating system procedure, like write or exit.
 
 ## Explaining the code, line by line
 
