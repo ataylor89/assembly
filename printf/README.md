@@ -281,7 +281,7 @@ We have finished commenting the code. I hope that makes the code clear.
 
 ## Conclusion
 
-In this document we talked about stack management, stack frames, frame pointers, stack pointers, return addresses, the printf  function, and many other topics.
+In this document we talked about stack management, stack frames, frame pointers, stack pointers, return addresses, the printf function, and many other topics.
 
 In the beginning of the document we asked the questions, "Why do we use the stack? Why do we need the stack?"
 
@@ -289,4 +289,4 @@ The answer is that we use the stack to pass arguments to functions, and we also 
 
 When we program in the C language, we do memory management.
 
-When we program in assembly language, we do both memory management and stack management.
+When we program in assembly language, we do stack management.
