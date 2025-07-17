@@ -42,15 +42,15 @@ Symbol table | A table that stores information about symbols
 Register | A storage device within the CPU
 Kernel mode | A privileged mode in which the operating system runs
 User mode | An unprivileged mode in which a user program runs
-mov | The move instruction. It moves a value into a register.
+mov | Moves a value into a register
 adr | Loads a PC-relative address into a register (the offset of the address relative to the program counter)
-svc | Supervisor call (or syscall). A system call is an operating system procedure, like write or exit.
-str | Store data from a register into memory
-ldr | Load data from memory into a register
-stp | Store data from a pair of registers into memory
-ldp | Load data from memory into a pair of registers
-add | Add two values and store the result in a register
-sub | Subtract one value from another and store the result in a register
+svc | Supervisor call (or syscall) calls an operating system procedure
+str | Stores data from a register into memory
+ldr | Loads data from memory into a register
+stp | Stores data from a pair of registers into memory
+ldp | Loads data from memory into a pair of registers
+add | Adds two values and stores the result in a register
+sub | Subtracts one value from another and stores the result in a register
 .ascii | A directive that defines an ASCII string
 .asciz | A directive that defines a null-terminated ASCII string
 
