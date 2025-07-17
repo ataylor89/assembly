@@ -287,6 +287,4 @@ In the beginning of the document we asked the questions, "Why do we use the stac
 
 The answer is that we use the stack to pass arguments to a function, and we also use the stack to preserve register values, like the values contained in the registers x29 (the frame pointer) and x30 (the link register).
 
-When we program in the C language, we do memory management.
-
-When we program in assembly language, we do stack management.
+My family taught me that, when we program in the C language, we do memory management, and when we program in assembly language, we do stack management. I found this very helpful, so I thought I would share it.
