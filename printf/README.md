@@ -22,8 +22,6 @@ Then we call printf using the branch with link instruction.
 
 Then we load the old register values for x29 and x30 from the stack into registers x29 and x30.
 
-After we restore registers x29 and x30 with their original values, we have the correct frame pointer (x29) and the correct return address (stored in register x30).
-
 The goal of this project is two-fold:
 
 First, to learn how to use the printf function using the branch with link (BL) instruction.
