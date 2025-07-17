@@ -193,3 +193,100 @@ In summary, register X30 should always contain the correct return address, so th
 ## Summary
 
 In the ARM64 architecture, the register X30 should always contain the correct return address, so that when a function returns, or a routine returns, the program counter gets updated correctly.
+
+## Explaining the code, line by line
+
+To explain the code, line by line, we'll just add a comment above each line of assembly code.
+
+Here is the code, reproduced, below:
+
+    // The global directive makes a symbol globally visible,
+    // so that it can be referenced by other parts of the program
+    .global main
+
+    // The ".balign 4" directive tells the assembler to pad the current location in memory
+    // until it reaches an address that is a multiple of four
+    .balign 4
+
+    // The "main" label stores the start address of our program
+    main:
+
+        // Stores a pair of values from registers x29 and x30 onto the stack,
+        // and decrements the stack pointer by 16 before storing them onto the stack
+        stp x29, x30, [sp, #-16]!
+
+        // Subtracts 16 from the stack pointer and stores the result in the stack pointer
+        //
+        // We are about to store the value 2025 onto the stack, and before we do so we have to decrement
+        // the stack pointer, and make sure it is 16-byte aligned
+        sub sp, sp, #16
+
+        // Moves the constant 2025 (our argument to printf) into register x8
+        mov x8, #2025
+
+        // Stores the value in register x8 (2025) onto the stack
+        str x8, [sp]
+
+        // Loads the address corresponding to our str label into register x0
+        // The printf function expects to find this address in register x0
+        adr x0, str
+
+        // The bl instruction means branch with link
+        //
+        // Before branching to the printf function, it does the following:
+        // 1. It updates our frame pointer (register X29) to contain the address of the stack pointer (register SP)
+        // 2. It updates the link register (register X30) to contain the address immediately following the bl instruction, which is the return address that the printf function will use
+        //
+        // After all of these preparations are done, the bl instruction branches to the printf function
+        bl _printf
+
+        // Our stack currently looks like this:
+        //
+        // <frame pointer>
+        // Saved value in x29 (8 bytes)
+        // Saved value in x30 (8 bytes)
+        // Empty (8 bytes)
+        // 2025 (8 bytes)
+        // <stack pointer>
+        //
+        // In order to load the saved values for registers x29 and x30,
+        // we have to increment the stack pointer by 16, so that it points to the correct memory address.
+        //
+        // Remember that the stack grows downward,
+        // so the stack pointer address is equal to the frame pointer address minus 32 bytes
+        add sp, sp, #16
+
+        // Now that our stack pointer points to the correct location in memory,
+        // we load the old values for registers x29 and x30 from the stack into registers x29 and x30
+        ldp x29, x30, [sp, #16]
+
+        // After loading a pair of values from the stack into registers x29 and x30,
+        // we have the correct frame pointer and the correct return address
+        //
+        // Now we move the value 0 into register x0, which represents our exit status
+        mov x0, #0
+
+        // Now we move the value 1 into register x16, which represents system call number one, i.e. exit
+        mov x16, #1
+
+        // Now we make a system call to exit our application, using the call number provided in register x16
+        svc #0
+
+    // The str label stores the memory address of the start of our string
+    // The .asciz directive defines a null-terminated string
+    str:
+        .asciz "The year is %d\n"
+
+We have finished commenting the code. I hope that makes the code clear.
+
+## Conclusion
+
+In this document we talked about stack management, stack frames, frame pointers, stack pointers, return addresses, the printf  function, and many other topics.
+
+In the beginning of the document we asked the questions, "Why do we use the stack? Why do we need the stack?"
+
+The answer is that we use the stack to pass arguments to functions, and we also use the stack to preserve register values, like the values contained in the registers x29 (the frame pointer) and x30 (the link register).
+
+When we program in the C language, we do memory management.
+
+When we program in assembly language, we do both memory management and stack management.
