@@ -285,7 +285,7 @@ In this document we talked about stack management, stack frames, frame pointers,
 
 In the beginning of the document we asked the questions, "Why do we use the stack? Why do we need the stack?"
 
-The answer is that we use the stack to pass arguments to functions, and we also use the stack to preserve register values, like the values contained in the registers x29 (the frame pointer) and x30 (the link register).
+The answer is that we use the stack to pass arguments to a function, and we also use the stack to preserve register values, like the values contained in the registers x29 (the frame pointer) and x30 (the link register).
 
 When we program in the C language, we do memory management.
 
