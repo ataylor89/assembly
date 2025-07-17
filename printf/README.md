@@ -185,3 +185,7 @@ The BL instruction stores the correct return address in register X30, so that th
 When the printf function finishes, it actually moves the return address in register X30 into the program counter, so that the program counter points to the instruction immediately following the `bl _printf` instruction.
 
 In summary, register X30 should always contain the correct return address, so that when a function or routine finishes, the program counter gets updated correctly.
+
+## One line explanation of the return address
+
+In the ARM64 architecture, the register X30 should always contain the correct return address, so that when a function returns, or a routine returns, the program counter gets updated correctly.
