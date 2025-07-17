@@ -131,3 +131,57 @@ In summary, a function's stack frame is defined by the frame pointer and the sta
 The frame pointer points to the start of the stack frame; the stack pointer points to the end of the stack frame.
 
 All of the data that a function allocates onto the stack is stored between these two memory addresses.
+
+## Understanding the return address
+
+The return address is stored in register X30, also called the Link Register.
+
+In our example, printf.s, we have a main routine.
+
+The start address of our main routine is stored under the label "main".
+
+The main routine has its own stack frame.
+
+This stack frame has a frame pointer, a stack pointer, and a return address.
+
+The start of the stack frame is stored in register X29.
+
+The end of the stack frame is stored in register SP.
+
+The return address is stored in register X30.
+
+Our main routine doesn't really have a function to return to... so I think that it returns to the startup code that called it.
+
+In other words, the return address for our main routine points to the startup code that called it.
+
+Before we call the function printf, we save the return address in register X30 onto the stack.
+
+(We also save the frame pointer onto the stack, as well as our argument, 2025.)
+
+Then we call the function printf, by means of the branch with link (BL) instruction.
+
+The branch with link (BL) instruction modifies the content of register X30.
+
+The BL instruction stores the address of the instruction immediately after it in register X30.
+
+It also stores the value of the stack pointer in register X29.
+
+So when we enter the printf code, we have a new frame pointer and a new return address.
+
+When the printf function returns, it returns to the address stored in register X30.
+
+That is, it returns to the instruction immediately following the bl instruction in our code.
+
+I know this is a little confusing... I'll try to explain it more clearly.
+
+Before we call printf, by means of the BL instruction, we store the return address of our main routine onto the stack.
+
+When we call printf, using the BL instruction, the BL instruction stores the address of the instruction immediately following it in register X30.
+
+The printf function then uses this return address to return to our code, to the line of code immediately following the `bl _printf` instruction.
+
+The BL instruction stores the correct return address in register X30, so that the function we call knows which line of code to return to after it finishes executing.
+
+When the printf function finishes, it actually moves the return address in register X30 into the program counter, so that the program counter points to the instruction immediately following the `bl _printf` instruction.
+
+In summary, register X30 should always contain the correct return address, so that when a function or routine finishes, the program counter gets updated correctly.
