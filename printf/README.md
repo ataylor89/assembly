@@ -89,3 +89,45 @@ It's also the case that, if we use registers to pass arguments to a function, an
 For these reasons, it is more practical to use the stack to pass arguments to a function.
 
 We use the stack to pass arguments to a function. We also use the stack to preserve register values.
+
+## Understanding the frame pointer and the stack pointer
+
+The frame pointer is a register that stores the start address of the current function's stack frame.
+
+In the ARM64 architecture, the frame pointer is register X29.
+
+The stack pointer is a register that stores the end address of the stack.
+
+The stack pointer points to the "top" of the stack.
+
+In the ARM64 architecture, the stack pointer is register SP.
+
+We can also say that the stack pointer stores the end address of the current function's stack frame.
+
+The top of the stack is equivalent to the end address of the current function's stack frame.
+
+So the frame pointer points to the start of the stack frame, and the stack pointer points to the end of the stack frame.
+
+The frame pointer is fixed during the execution of the function.
+
+The stack pointer often changes during the execution of the function.
+
+When a function pushes new data onto the stack, the stack pointer gets decremented.
+
+It's important to know that, in many computer systems, including x86 systems and ARM64 systems, the stack grows downward.
+
+The stack pointer gets decremented whenever data is pushed onto the stack.
+
+So the frame pointer is always greater than or equal to the stack pointer.
+
+When a function returns, the stack pointer gets set to the frame pointer.
+
+The code that calls the function can load the old frame pointer from memory into register X29.
+
+This way, the code that calls the function has the correct frame pointer and the correct stack pointer.
+
+In summary, a function's stack frame is defined by the frame pointer and the stack pointer.
+
+The frame pointer points to the start of the stack frame; the stack pointer points to the end of the stack frame.
+
+All of the data that a function allocates onto the stack is stored between these two memory addresses.
