@@ -132,7 +132,7 @@ The frame pointer points to the start of the stack frame; the stack pointer poin
 
 All of the data that a function allocates onto the stack is stored between these two memory addresses.
 
-## One line explanation
+## Summary
 
 The frame pointer is register X29 and it points to the start of the stack frame; the stack pointer is register SP and it points to the end of the stack frame, also called the "top" of the stack.
 
@@ -190,6 +190,6 @@ When the printf function finishes, it actually moves the return address in regis
 
 In summary, register X30 should always contain the correct return address, so that when a function or routine finishes, the program counter gets updated correctly.
 
-## One line explanation
+## Summary
 
 In the ARM64 architecture, the register X30 should always contain the correct return address, so that when a function returns, or a routine returns, the program counter gets updated correctly.
