@@ -189,3 +189,7 @@ In summary, register X30 should always contain the correct return address, so th
 ## One line explanation of the return address
 
 In the ARM64 architecture, the register X30 should always contain the correct return address, so that when a function returns, or a routine returns, the program counter gets updated correctly.
+
+## One line explanation of the frame pointer and the stack pointer
+
+The frame pointer is register X29 and it points to the start of the stack frame; the stack pointer is register SP and it points to the end of the stack frame, also called the "top" of the stack.
