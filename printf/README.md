@@ -1,5 +1,33 @@
 # printf
 
+## Introduction
+
+printf is a function in the C standard library. When we link our object file printf.o with the System library, it actually includes the C standard library into the final executable.
+
+In our "hello world" project, we used a system call to write to standard output.
+
+We wrote the string "Hello world!\n" to standard output using system call number four.
+
+In this project, we use the printf function to write to standard output.
+
+The printf function gives us more flexibility: it allows us to format strings using format specifiers.
+
+Whenever we call a function like printf, we have to do some routine stack management.
+
+First we save register values for x29 and x30 onto the stack.
+
+Then we store our argument (in this case 2025) onto the stack.
+
+Then we call printf using the branch with link instruction.
+
+Then we load the old register values for x29 and x30 from the stack into registers x29 and x30.
+
+The goal of this project is two-fold:
+
+First, to learn how to use the printf function using the branch with link (BL) instruction.
+
+Second, to learn the basics of stack management.
+
 ## Compiling to machine code
 
 First, I added the following line to my `~/.zshrc` file:
