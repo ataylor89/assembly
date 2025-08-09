@@ -25,7 +25,7 @@ This way, I don't have to type out a long path every time I compile the assembly
 
 It's also important to point out that... the path for $SYSLIBROOT works for me but it might not work for you.
 
-To find the correct path, you can run the following command in Terminal
+To find the correct path, you can run the following command in Terminal:
 
     xcrun -sdk macosx --show-sdk-path
 
